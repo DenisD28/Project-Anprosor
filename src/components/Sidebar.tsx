@@ -5,8 +5,8 @@ import {
   IconUsers,
   IconLogout2
 } from '@tabler/icons-react'
-
-import { Link, Outlet } from 'react-router-dom'
+import { Button } from '@/components/ui/button'
+import { NavLink, Outlet } from 'react-router-dom'
 export const Sidebar = () => {
   return (
     <>
@@ -32,7 +32,7 @@ export const Sidebar = () => {
       </button>
       <aside
         id='logo-sidebar'
-        className='fixed top-0 left-0 z-40 w-64 h-screen transition-transform -translate-x-full sm:translate-x-0'
+        className='fixed top-0 left-0 z-40 w-60 h-screen transition-transform -translate-x-full sm:translate-x-0'
         aria-label='Sidebar'
       >
         <div className='h-full px-3 py-4 overflow-y-auto bg-primary text-primary-foreground flex flex-col justify-between'>
@@ -49,84 +49,64 @@ export const Sidebar = () => {
             </span>
           </header>
 
-          <ul className='space-y-2 font-medium grow'>
-            <li>
-              <Link
-                to={'/dashboard'}
-                className='flex items-center p-2  rounded-lg  group'
-              >
-                <IconLayoutDashboard />
-                <span className='ml-3'>Panel De Control</span>
-              </Link>
-            </li>
-            <li>
-              <Link
-                to={'/adminClientes'}
-                className='flex items-center p-2  rounded-lg  group'
-              >
-                <IconUserCog />
-                <span className='ml-3'>Admin. Clientes</span>
-              </Link>
-            </li>
-            <li>
-              <Link
-                to={'/adminGranos'}
-                className='flex items-center p-2  rounded-lg  group'
-              >
-                <img
-                  src='/svg/corn-seeds-svgrepo-com.svg'
-                  alt=''
-                  className='w-6 h-6 '
-                />
+          <nav className='space-y-2 font-medium grow'>
+            <NavLink to='/dashboard' className='flex gap-2.5 p-2'>
+              <IconLayoutDashboard />
+              <span>Panel De Control</span>
+            </NavLink>
 
-                <span className='ml-3'>Admin. Granos</span>
-              </Link>
-            </li>
-            <li>
-              <Link
-                to={'/adminServicios'}
-                className='flex items-center p-2  rounded-lg  group'
-              >
-                <img
-                  src='/svg/services-svgrepo-com.svg'
-                  alt=''
-                  className='w-6 h-6 '
-                />
-                <span className='ml-3'>Admin. Servicios</span>
-              </Link>
-            </li>
-            <li>
-              <Link
-                to={'/adminSilos'}
-                className='flex items-center p-2  rounded-lg  group'
-              >
-                <IconBuilding />
-                <span className='ml-3'>Admin. Silos</span>
-              </Link>
-            </li>
-            <li>
-              <Link
-                to={'/adminUsuarios'}
-                className='flex items-center p-2  rounded-lg  group'
-              >
-                <IconUsers />
-                <span className='ml-3'>Admin. Usuarios</span>
-              </Link>
-            </li>
-          </ul>
+            <NavLink to={'/adminClientes'} className='flex gap-2.5 p-2'>
+              <IconUserCog />
+              <span>Admin. Clientes</span>
+            </NavLink>
+
+            <NavLink to={'/adminGranos'} className='flex gap-2.5 p-2'>
+              <img
+                src='/svg/corn-seeds-svgrepo-com.svg'
+                alt=''
+                className='w-6 h-6 '
+              />
+              <span>Admin. Granos</span>
+            </NavLink>
+
+            <NavLink to={'/adminServicios'} className='flex gap-2.5 p-2'>
+              <img
+                src='/svg/services-svgrepo-com.svg'
+                alt=''
+                className='w-6 h-6 '
+              />
+              <span>Admin. Servicios</span>
+            </NavLink>
+
+            <NavLink to={'/adminSilos'} className='flex gap-2.5 p-2'>
+              <IconBuilding />
+              <span>Admin. Silos</span>
+            </NavLink>
+
+            <NavLink to={'/adminUsuarios'} className='flex gap-2.5 p-2'>
+              <IconUsers />
+              <span>Admin. Usuarios</span>
+            </NavLink>
+          </nav>
 
           <div className='flex justify-between'>
-            <Link to={'/'} className='flex items-center p-2  rounded-lg  group'>
+            <NavLink
+              to={'/'}
+              className='flex items-center p-2  rounded-lg  group'
+            >
               <IconLogout2 />
-            </Link>
+            </NavLink>
 
-            <Link to={'/'} className='flex items-center p-2  rounded-lg  group'>
+            <NavLink
+              to={'/'}
+              className='flex items-center p-2  rounded-lg  group'
+            >
               <IconUserCog />
-            </Link>
+            </NavLink>
           </div>
         </div>
       </aside>
-      <div className='p-4 sm:ml-64'>
+      <div className='p-4 sm:ml-60'>
         <Outlet />
       </div>
     </>
