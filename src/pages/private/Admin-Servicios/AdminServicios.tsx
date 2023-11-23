@@ -3,7 +3,7 @@ import { IconCirclePlus } from '@tabler/icons-react'
 import { TablaServicios } from '@/pages/private/Admin-Servicios/components/TablaServicios'
 import { FormServicios } from '@/pages/private/Admin-Servicios/components/FormServicios'
 
-export const AdminServicios = () => {
+export default function AdminServicios() {
   return (
     <section className='flex flex-col gap-4'>
       <header className='text-3xl font-bold'>Servicios registrados</header>

@@ -3,7 +3,7 @@ import { IconCirclePlus } from '@tabler/icons-react'
 import { FormCliente } from '@/pages/private/Admin-Clientes/components/FormCliente'
 import { TablaClientes } from '@/pages/private/Admin-Clientes/components/TablaClientes'
 
-export const AdminClientes = () => {
+export default function AdminClientes() {
   return (
     <section className='flex flex-col gap-4'>
       <header className='text-3xl font-bold'>Clientes registrados</header>

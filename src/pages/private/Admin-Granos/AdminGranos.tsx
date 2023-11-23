@@ -3,7 +3,7 @@ import { IconCirclePlus } from '@tabler/icons-react'
 import { FormGranos } from '@/pages/private/Admin-Granos/components/FormGranos'
 import { TablaGranos } from '@/pages/private/Admin-Granos/components/TablaGranos'
 
-export const AdminGranos = () => {
+export default function AdminGranos() {
   return (
     <section className='flex flex-col gap-4'>
       <header className='text-3xl font-bold'>Granos registrados</header>

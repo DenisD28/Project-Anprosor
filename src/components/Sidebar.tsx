@@ -34,7 +34,7 @@ export const Sidebar = () => {
         className='fixed top-0 left-0 z-40 w-60 h-screen transition-transform -translate-x-full sm:translate-x-0'
         aria-label='Sidebar'
       >
-        <div className='h-full px-3 py-4 overflow-y-auto bg-primary text-primary-foreground flex flex-col justify-between rounded-r-xl'>
+        <div className='h-full px-3 py-4 overflow-y-auto bg-primary text-primary-foreground flex flex-col justify-between'>
           <header className='flex items-center gap-4 mb-5'>
             <figure className='w-12 h-12'>
               <img

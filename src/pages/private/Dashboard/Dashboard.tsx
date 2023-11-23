@@ -17,7 +17,7 @@ export const data = {
   ]
 }
 
-export const Dashboard = () => {
+export default function Dashboard() {
   return (
     <main className='flex flex-col gap-4'>
       <header className='text-3xl font-bold'>Panel De control</header>
