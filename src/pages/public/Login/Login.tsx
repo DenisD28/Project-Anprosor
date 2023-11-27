@@ -1,32 +1,31 @@
+import { type ILogin } from '@/type'
 import { Label } from '@/components/ui/label'
 import { Input } from '@/components/ui/input'
+import { useNavigate } from 'react-router-dom'
 import { Button } from '@/components/ui/button'
-import { Toaster } from '@/components/ui/toaster'
-import { useToast } from '@/components/ui/use-toast'
+import { toast } from '@/components/ui/use-toast'
 import { useForm, type SubmitHandler } from 'react-hook-form'
 import { AuthLogin } from '@/services/servicios.Autenticacion'
 
-interface FormInput {
-  email: string
-  password: string
-}
 export const Login = () => {
-  const { toast } = useToast()
+  const navigate = useNavigate()
 
   const {
     register,
     handleSubmit,
     formState: { errors }
-  } = useForm<FormInput>({
+  } = useForm<ILogin>({
     defaultValues: {
       email: 'example@test.com',
       password: 'password'
     }
   })
 
-  const onSubmit: SubmitHandler<FormInput> = ({ email, password }) => {
-    AuthLogin(email, password)
+  const onSubmit: SubmitHandler<ILogin> = (data) => {
+    AuthLogin(data)
       .then((user) => {
+        navigate('/dashboard')
+
         toast({
           title: 'Bienvenido',
           description: `Bienvenido de vuelta ${user}`
@@ -100,8 +99,6 @@ export const Login = () => {
           </Button>
         </form>
       </section>
-
-      <Toaster />
     </div>
   )
 }

@@ -4,28 +4,22 @@ import { Login } from '@/pages/public/Login/Login'
 import { createBrowserRouter } from 'react-router-dom'
 
 const Dashboard = loadable(
-  async () => await import('./pages/private/Dashboard/Dashboard'),
-  { fallback: <div>Loading...</div> }
+  async () => await import('./pages/private/Dashboard/Dashboard')
 )
 const AdminSilos = loadable(
-  async () => await import('@/pages/private/Admin-Silos/AdminSilos'),
-  { fallback: <div>Loading...</div> }
+  async () => await import('@/pages/private/Admin-Silos/AdminSilos')
 )
 const AdminGranos = loadable(
-  async () => await import('@/pages/private/Admin-Granos/AdminGranos'),
-  { fallback: <div>Loading...</div> }
+  async () => await import('@/pages/private/Admin-Granos/AdminGranos')
 )
 const AdminClientes = loadable(
-  async () => await import('@/pages/private/Admin-Clientes/AdminClientes'),
-  { fallback: <div>Loading...</div> }
+  async () => await import('@/pages/private/Admin-Clientes/AdminClientes')
 )
 const AdminUsuarios = loadable(
-  async () => await import('@/pages/private/Admin-Usuarios/AdminUsuarios'),
-  { fallback: <div>Loading...</div> }
+  async () => await import('@/pages/private/Admin-Usuarios/AdminUsuarios')
 )
 const AdminServicios = loadable(
-  async () => await import('@/pages/private/Admin-Servicios/AdminServicios'),
-  { fallback: <div>Loading...</div> }
+  async () => await import('@/pages/private/Admin-Servicios/AdminServicios')
 )
 
 export const router = createBrowserRouter([

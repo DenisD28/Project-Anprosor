@@ -19,7 +19,7 @@ export default function AdminClientes() {
         </Button>
       </FormCliente>
 
-      <div className='h-[75vh] overflow-y-scroll'>
+      <div className='h-[73vh] overflow-y-scroll'>
         <TablaClientes />
       </div>
     </section>

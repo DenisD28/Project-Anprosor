@@ -6,11 +6,19 @@ import {
   TableHeader,
   TableRow
 } from '@/components/ui/table'
+import { useQuery } from '@tanstack/react-query'
+
 import { FilaTablaClientes } from './FilaTablaClientes'
+import { GetClientes } from '@/services/servicios.Clientes'
 
 export const TablaClientes = () => {
+  const { data: listClientes } = useQuery({
+    queryKey: ['clients'],
+    queryFn: GetClientes
+  })
+
   return (
-    <Table className=''>
+    <Table>
       <TableCaption>Lista de clientes registrados en el sistema</TableCaption>
       <TableHeader>
         <TableRow>
@@ -21,7 +29,9 @@ export const TablaClientes = () => {
         </TableRow>
       </TableHeader>
       <TableBody>
-        <FilaTablaClientes />
+        {listClientes?.map((client) => (
+          <FilaTablaClientes key={client.id} {...client} />
+        ))}
       </TableBody>
     </Table>
   )

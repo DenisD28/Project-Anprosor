@@ -9,12 +9,15 @@ import {
   AlertDialogTitle,
   AlertDialogTrigger
 } from '@/components/ui/alert-dialog'
+import { useFormClientes } from '@/pages/private/Admin-Clientes/hooks/useFormClientes'
 
 interface Props {
+  idCliente: number
   children: React.ReactNode
 }
 
-export const EliminarCliente = ({ children }: Props) => {
+export const EliminarCliente = ({ children, idCliente }: Props) => {
+  const { handleDeleteClient } = useFormClientes()
   return (
     <AlertDialog>
       <AlertDialogTrigger asChild>{children}</AlertDialogTrigger>
@@ -29,7 +32,9 @@ export const EliminarCliente = ({ children }: Props) => {
         </AlertDialogHeader>
         <AlertDialogFooter>
           <AlertDialogCancel>Cancelar</AlertDialogCancel>
-          <AlertDialogAction>Eliminar</AlertDialogAction>
+          <AlertDialogAction onClick={handleDeleteClient(idCliente)}>
+            Eliminar
+          </AlertDialogAction>
         </AlertDialogFooter>
       </AlertDialogContent>
     </AlertDialog>

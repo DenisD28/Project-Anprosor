@@ -1,13 +1,3 @@
-export interface ResponseLogin {
-  data: DataLogin
-}
-interface DataLogin {
-  user: User
-  token: string
-  token_type: string
-  message: string
-  status: number
-}
 interface User {
   name: string
   email: string
@@ -24,4 +14,16 @@ export interface ResponseLogout {
 interface DataLogout {
   message: string
   status: number
+}
+
+export interface Client {
+  id?: number
+  name: string
+  email: string
+  phone: string
+}
+
+export interface ILogin {
+  email: string
+  password: string
 }

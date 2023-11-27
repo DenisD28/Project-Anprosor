@@ -5,6 +5,7 @@ import {
   IconUsers,
   IconLogout2
 } from '@tabler/icons-react'
+
 import { NavLink, Outlet } from 'react-router-dom'
 export const Sidebar = () => {
   return (

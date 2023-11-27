@@ -1,6 +1,8 @@
+import type { Client } from '@/type'
 import { Label } from '@/components/ui/label'
 import { Input } from '@/components/ui/input'
 import { Button } from '@/components/ui/button'
+import { useFormClientes } from '@/pages/private/Admin-Clientes/hooks/useFormClientes'
 
 import {
   Dialog,
@@ -11,52 +13,35 @@ import {
   DialogHeader,
   DialogFooter
 } from '@/components/ui/dialog'
-import React, { useState } from 'react'
-import { useForm, type SubmitHandler } from 'react-hook-form'
 
 interface Props {
   title: string
   description: string
-  infoCliente?: any
+  infoCliente?: Client
   action: 'create' | 'edit'
   children: React.ReactNode
 }
 
-interface Inputs {
-  nombre: string
-  telefono: string
-  correo: string
-}
-
-export const FormCliente = ({ title, description, children }: Props) => {
-  const [open, setOpen] = useState(false)
-
-  const {
-    register,
-    handleSubmit,
-    formState: { errors }
-  } = useForm<Inputs>({
-    defaultValues: {
-      nombre: 'Axell',
-      telefono: '+505 1234 5678',
-      correo: 'ejemplo@gmail.com'
-    }
-  })
+export const FormCliente = ({
+  title,
+  action,
+  children,
+  description,
+  infoCliente
+}: Props) => {
+  const { register, errors, handleSubmit, onSubmit, openModal, setOpenModal } =
+    useFormClientes(action, infoCliente)
 
   const patternTelefono = /^\+(?:[0-9] ?){6,14}[0-9]$/
   const patternCorreo = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/
 
-  const onSubmit: SubmitHandler<Inputs> = (data) => {
-    console.log(data)
-  }
-
   return (
-    <Dialog open={open} onOpenChange={setOpen}>
+    <Dialog open={openModal} onOpenChange={setOpenModal}>
       <DialogTrigger asChild>{children}</DialogTrigger>
       <DialogContent className='max-w-sm'>
         <form
-          onSubmit={(evente) => {
-            void handleSubmit(onSubmit)(evente)
+          onSubmit={(event) => {
+            void handleSubmit(onSubmit)(event)
           }}
           className='space-y-4'
         >
@@ -70,26 +55,27 @@ export const FormCliente = ({ title, description, children }: Props) => {
               type='text'
               autoComplete='off'
               placeholder='Francisco Vargas'
-              {...register('nombre', {
+              {...register('name', {
                 required: {
                   value: true,
-                  message: 'El nombre es requerido'
+                  message: 'El name es requerido'
                 }
               })}
             />
-            {errors.nombre != null && (
+            {errors.name != null && (
               <span className='text-xs text-red-600'>
-                {errors.nombre.message}
+                {errors.name.message}
               </span>
             )}
           </div>
+
           <div className='grid w-full max-w-sm items-center gap-1.5'>
             <Label htmlFor='email'>Numero de telefono</Label>
             <Input
               type='text'
               placeholder='+000 1234 5678'
               autoComplete='off'
-              {...register('telefono', {
+              {...register('phone', {
                 required: {
                   value: true,
                   message: 'El numero de telefono es requerido'
@@ -100,19 +86,20 @@ export const FormCliente = ({ title, description, children }: Props) => {
                 }
               })}
             />
-            {errors.telefono != null && (
+            {errors.phone != null && (
               <span className='text-xs text-red-600'>
-                {errors.telefono.message}
+                {errors.phone.message}
               </span>
             )}
           </div>
+
           <div className='grid w-full max-w-sm items-center gap-1.5'>
             <Label htmlFor='email'>Correo</Label>
             <Input
               type='text'
               autoComplete='off'
               placeholder='ejemplo@gmail.com'
-              {...register('correo', {
+              {...register('email', {
                 required: {
                   value: true,
                   message: 'El correo es requerido'
@@ -123,9 +110,9 @@ export const FormCliente = ({ title, description, children }: Props) => {
                 }
               })}
             />
-            {errors.correo != null && (
+            {errors.email != null && (
               <span className='text-xs text-red-600'>
-                {errors.correo.message}
+                {errors.email.message}
               </span>
             )}
           </div>
