@@ -16,11 +16,19 @@ interface DataLogout {
   status: number
 }
 
+type ActionForm = 'create' | 'update'
+
 export interface Client {
-  id?: number
+  id: number
   name: string
   email: string
   phone: string
+}
+
+export interface Grain {
+  id: number
+  code: string
+  name: string
 }
 
 export interface ILogin {

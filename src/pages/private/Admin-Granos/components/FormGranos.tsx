@@ -11,40 +11,29 @@ import {
   DialogHeader,
   DialogFooter
 } from '@/components/ui/dialog'
-import React, { useState } from 'react'
-import { useForm, type SubmitHandler } from 'react-hook-form'
+import { type ActionForm, type Grain } from '@/type'
+import { useFormGranos } from '@/pages/private/Admin-Granos/hooks/useFormGranos'
 
 interface Props {
   title: string
   description: string
-  infoCliente?: any
-  action: 'create' | 'edit'
+  infoGrain?: Grain
+  action: ActionForm
   children: React.ReactNode
 }
 
-interface Inputs {
-  nombre: string
-}
-
-export const FormGranos = ({ title, description, children }: Props) => {
-  const [open, setOpen] = useState(false)
-
-  const {
-    register,
-    handleSubmit,
-    formState: { errors }
-  } = useForm<Inputs>({
-    defaultValues: {
-      nombre: 'Maiz'
-    }
-  })
-
-  const onSubmit: SubmitHandler<Inputs> = (data) => {
-    console.log(data)
-  }
+export const FormGranos = ({
+  title,
+  action,
+  children,
+  infoGrain,
+  description
+}: Props) => {
+  const { register, errors, handleSubmit, onSubmit, openModal, setOpenModal } =
+    useFormGranos(action, infoGrain)
 
   return (
-    <Dialog open={open} onOpenChange={setOpen}>
+    <Dialog open={openModal} onOpenChange={setOpenModal}>
       <DialogTrigger asChild>{children}</DialogTrigger>
       <DialogContent className='max-w-sm'>
         <form
@@ -63,16 +52,16 @@ export const FormGranos = ({ title, description, children }: Props) => {
               type='text'
               autoComplete='off'
               placeholder='Maiz'
-              {...register('nombre', {
+              {...register('name', {
                 required: {
                   value: true,
                   message: 'El nombre es requerido'
                 }
               })}
             />
-            {errors.nombre != null && (
+            {errors.name != null && (
               <span className='text-xs text-red-600'>
-                {errors.nombre.message}
+                {errors.name.message}
               </span>
             )}
           </div>

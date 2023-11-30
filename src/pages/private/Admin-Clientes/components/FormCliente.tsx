@@ -1,4 +1,4 @@
-import type { Client } from '@/type'
+import type { ActionForm, Client } from '@/type'
 import { Label } from '@/components/ui/label'
 import { Input } from '@/components/ui/input'
 import { Button } from '@/components/ui/button'
@@ -18,7 +18,7 @@ interface Props {
   title: string
   description: string
   infoCliente?: Client
-  action: 'create' | 'edit'
+  action: ActionForm
   children: React.ReactNode
 }
 
@@ -50,7 +50,7 @@ export const FormCliente = ({
             <DialogDescription>{description}</DialogDescription>
           </DialogHeader>
           <div className='grid w-full max-w-sm items-center gap-1.5'>
-            <Label htmlFor='email'>Nombre</Label>
+            <Label htmlFor='name'>Nombre</Label>
             <Input
               type='text'
               autoComplete='off'

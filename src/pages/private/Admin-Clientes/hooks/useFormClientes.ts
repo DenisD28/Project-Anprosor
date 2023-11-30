@@ -1,5 +1,5 @@
 import { useState } from 'react'
-import { type Client } from '@/type'
+import { type ActionForm, type Client } from '@/type'
 import { useToast } from '@/components/ui/use-toast'
 import { useForm, type SubmitHandler } from 'react-hook-form'
 import { useQueryClient, useMutation } from '@tanstack/react-query'
@@ -9,8 +9,11 @@ import {
   UpdateCliente
 } from '@/services/servicios.Clientes'
 
-export const useFormClientes = (action?: string, infoCliente?: Client) => {
+export const useFormClientes = (action?: ActionForm, infoCliente?: Client) => {
   const [openModal, setOpenModal] = useState(false)
+
+  const { toast } = useToast()
+  const queryClient = useQueryClient()
 
   const {
     reset,
@@ -25,9 +28,6 @@ export const useFormClientes = (action?: string, infoCliente?: Client) => {
       email: infoCliente?.email ?? ''
     }
   })
-
-  const { toast } = useToast()
-  const queryClient = useQueryClient()
 
   const newClient = useMutation({
     mutationFn: CreacteCliente,
@@ -94,12 +94,17 @@ export const useFormClientes = (action?: string, infoCliente?: Client) => {
   }
 
   const onSubmit: SubmitHandler<Client> = (data) => {
-    if (action === 'create') {
-      newClient.mutate(data)
-    }
+    switch (action) {
+      case 'create':
+        newClient.mutate(data)
+        break
 
-    if (action === 'edit') {
-      editClient.mutate(data)
+      case 'update':
+        editClient.mutate(data)
+        break
+
+      default:
+        break
     }
   }
 

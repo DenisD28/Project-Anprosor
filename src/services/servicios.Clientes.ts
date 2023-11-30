@@ -16,6 +16,7 @@ export const GetClientes = async (): Promise<Client[]> => {
   const response = await axios.get(`${BASE_URL}/client?paginate=false`, config)
 
   const listClients: Client[] = response.data.clients
+
   return listClients
 }
 

@@ -13,7 +13,7 @@ export const FilaTablaClientes = (data: Client) => {
       <TableCell>{data.email}</TableCell>
       <TableCell className='flex justify-center gap-2.5'>
         <FormCliente
-          action='edit'
+          action='update'
           infoCliente={data}
           title='Editar Datos Del Cliente'
           description='Ingrese la nueva informacion del cliente'
