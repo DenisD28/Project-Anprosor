@@ -1,5 +1,6 @@
 import axios from 'axios'
 import Cookies from 'js-cookie'
+import CryptoJS from 'crypto-js'
 import type { ResponseLogout, ILogin, User } from '@/type'
 
 const BASE_URL = import.meta.env.VITE_BASE_URL_API
@@ -31,7 +32,8 @@ export const AuthLogin = async (data: ILogin): Promise<string> => {
   const { name }: User = response.data.user
 
   // Guardar el token de acceso en una cookie
-  Cookies.set(NAME_COOKIE, token)
+  const encryptedToken = CryptoJS.AES.encrypt(token, import.meta.env.VITE_KEY).toString();
+  Cookies.set(NAME_COOKIE, encryptedToken)
 
   return name
 }
