@@ -58,7 +58,7 @@ export const FormCliente = ({
               {...register('name', {
                 required: {
                   value: true,
-                  message: 'El name es requerido'
+                  message: 'El nombre del cliente es requerido'
                 }
               })}
             />

@@ -75,7 +75,7 @@ export const useFormGranos = (action?: ActionForm, infoGrain?: Grain) => {
       await queryClient.invalidateQueries({ queryKey: ['grains'] })
 
       toast({
-        title: 'Eliminar Cliente',
+        title: 'Eliminar Grano',
         description: 'Grano eliminado exitosamente'
       })
     },

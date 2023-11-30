@@ -20,7 +20,7 @@ export const FilaTablaGranos = (data: Grain) => {
           </Button>
         </FormGranos>
 
-        <EliminarGrano>
+        <EliminarGrano idGrano={data.id}>
           <Button variant={'destructive'} size={'icon'}>
             <IconTrash />
           </Button>

@@ -9,12 +9,16 @@ import {
   AlertDialogTitle,
   AlertDialogTrigger
 } from '@/components/ui/alert-dialog'
+import { useFormGranos } from '@/pages/private/Admin-Granos/hooks/useFormGranos'
 
 interface Props {
+  idGrano: number
   children: React.ReactNode
 }
 
-export const EliminarGrano = ({ children }: Props) => {
+export const EliminarGrano = ({ children, idGrano }: Props) => {
+  const { handleDeleteGrain } = useFormGranos()
+
   return (
     <AlertDialog>
       <AlertDialogTrigger asChild>{children}</AlertDialogTrigger>
@@ -29,7 +33,9 @@ export const EliminarGrano = ({ children }: Props) => {
         </AlertDialogHeader>
         <AlertDialogFooter>
           <AlertDialogCancel>Cancelar</AlertDialogCancel>
-          <AlertDialogAction>Eliminar</AlertDialogAction>
+          <AlertDialogAction onClick={handleDeleteGrain(idGrano)}>
+            Eliminar
+          </AlertDialogAction>
         </AlertDialogFooter>
       </AlertDialogContent>
     </AlertDialog>

@@ -1,7 +1,7 @@
 import { Button } from '@/components/ui/button'
 import { IconCirclePlus } from '@tabler/icons-react'
-import { TablaServicios } from '@/pages/private/Admin-Servicios/components/TablaServicios'
 import { FormServicios } from '@/pages/private/Admin-Servicios/components/FormServicios'
+import { TablaServicios } from '@/pages/private/Admin-Servicios/components/TablaServicios'
 
 export default function AdminServicios() {
   return (

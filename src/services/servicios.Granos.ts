@@ -30,7 +30,7 @@ export const DeleteGrano = async (id: number): Promise<void> => {
 
 export const UpdateGrano = async (data: Grain): Promise<void> => {
   await axios.patch(
-    `${BASE_URL}/client/${data.id}?code=${data.code}&name=${data.name}`,
+    `${BASE_URL}/grain/${data.id}?code=${data.code}&name=${data.name}`,
     {},
     config
   )

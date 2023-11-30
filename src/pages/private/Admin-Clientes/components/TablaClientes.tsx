@@ -25,7 +25,7 @@ export const TablaClientes = () => {
           <TableHead>Nombre del cliente</TableHead>
           <TableHead>Numero del telefono</TableHead>
           <TableHead>Correo electronico</TableHead>
-          <TableHead className='text-center'>Acciones</TableHead>
+          <TableHead className='w-40 text-center'>Acciones</TableHead>
         </TableRow>
       </TableHeader>
       <TableBody>

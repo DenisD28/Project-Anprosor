@@ -31,14 +31,6 @@ export interface Grain {
   name: string
 }
 
-export interface Silo {
-  id: number
-  code: string
-  name: string
-  capacity_total: number
-  unit_of_measure: string
-}
-
 export interface ILogin {
   email: string
   password: string

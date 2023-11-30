@@ -1,6 +1,6 @@
-import { type Client } from '@/type'
 import axios from 'axios'
 import Cookies from 'js-cookie'
+import { type Client } from '@/type'
 
 const BASE_URL = import.meta.env.VITE_BASE_URL_API
 const NAME_COOKIE = import.meta.env.VITE_NAME_COOKIE

@@ -9,12 +9,16 @@ import {
   AlertDialogTitle,
   AlertDialogTrigger
 } from '@/components/ui/alert-dialog'
+import { useFormServicios } from '@/pages/private/Admin-Servicios/hooks/useFormServicios'
 
 interface Props {
+  idService: number
   children: React.ReactNode
 }
 
-export const EliminarServicio = ({ children }: Props) => {
+export const EliminarServicio = ({ children, idService }: Props) => {
+  const { handleDeleteService } = useFormServicios()
+
   return (
     <AlertDialog>
       <AlertDialogTrigger asChild>{children}</AlertDialogTrigger>
@@ -29,7 +33,9 @@ export const EliminarServicio = ({ children }: Props) => {
         </AlertDialogHeader>
         <AlertDialogFooter>
           <AlertDialogCancel>Cancelar</AlertDialogCancel>
-          <AlertDialogAction>Eliminar</AlertDialogAction>
+          <AlertDialogAction onClick={handleDeleteService(idService)}>
+            Eliminar
+          </AlertDialogAction>
         </AlertDialogFooter>
       </AlertDialogContent>
     </AlertDialog>
