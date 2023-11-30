@@ -13,15 +13,6 @@ const config = {
   }
 }
 
-/**
- * Realiza una solicitud de inicio de sesión al servidor utilizando la información proporcionada.
- *
- * @async
- * @function
- * @param {ILogin} data - Objeto que contiene la información de inicio de sesión, incluyendo el correo electrónico y la contraseña.
- * @returns {Promise<string>} - Una promesa que se resuelve con el nombre del usuario después de un inicio de sesión exitoso.
-
- */
 export const AuthLogin = async (data: ILogin): Promise<string> => {
   // Hacer la solicitud POST al servidor para iniciar sesión
   const response = await axios.post(`${BASE_URL}/auth/login`, data)
@@ -36,14 +27,8 @@ export const AuthLogin = async (data: ILogin): Promise<string> => {
   return name
 }
 
-/**
- * Realiza una solicitud para cerrar sesión en el servidor, utilizando el token de acceso almacenado en una cookie.
- *
- * @async
- * @function
- * @returns {Promise<string>} - Una promesa que se resuelve con un mensaje indicando el éxito del cierre de sesión.
+export const ValidateToken = async () => {}
 
- */
 export const AuthLogout = async (): Promise<string> => {
   // Hacer la solicitud POST al servidor para cerrar sesión y obtener el mensaje de éxito.
   const response: ResponseLogout = await axios.post(
