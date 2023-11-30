@@ -55,7 +55,7 @@ export const FormGranos = ({
               {...register('name', {
                 required: {
                   value: true,
-                  message: 'El nombre es requerido'
+                  message: 'El nombre del grano es requerido'
                 }
               })}
             />

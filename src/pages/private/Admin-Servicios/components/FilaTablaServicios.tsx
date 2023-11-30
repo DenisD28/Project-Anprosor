@@ -1,16 +1,18 @@
+import { type Service } from '@/type'
 import { FormServicios } from './FormServicios'
 import { Button } from '@/components/ui/button'
-import { EliminarServicio } from './EliminarGrano'
+import { EliminarServicio } from './EliminarServicio'
 import { TableCell, TableRow } from '@/components/ui/table'
 import { IconEditCircle, IconTrash } from '@tabler/icons-react'
 
-export const FilaTablaServicios = () => {
+export const FilaTablaServicios = ({ id, name, description }: Service) => {
   return (
     <TableRow>
-      <TableCell>Almacenamiento</TableCell>
+      <TableCell>{name}</TableCell>
+      <TableCell>{description}</TableCell>
       <TableCell className='flex justify-center gap-2.5'>
         <FormServicios
-          action='edit'
+          action='update'
           title='Editar Datos Del Servicio'
           description='Ingrese la nueva informacion del servicio'
         >
@@ -19,7 +21,7 @@ export const FilaTablaServicios = () => {
           </Button>
         </FormServicios>
 
-        <EliminarServicio>
+        <EliminarServicio idService={id}>
           <Button variant={'destructive'} size={'icon'}>
             <IconTrash />
           </Button>
