@@ -79,12 +79,14 @@ export const useFormGranos = (action?: ActionForm, infoGrain?: Grain) => {
         description: 'Grano eliminado exitosamente'
       })
     },
-    onError: () => {
+    onError: (error) => {
       toast({
         title: 'Error',
         variant: 'destructive',
         description: 'Error al eliminar el grano'
       })
+
+      console.log(error)
     }
   })
 

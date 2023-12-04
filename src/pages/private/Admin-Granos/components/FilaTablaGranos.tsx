@@ -12,6 +12,7 @@ export const FilaTablaGranos = (data: Grain) => {
       <TableCell className='flex justify-center gap-2.5'>
         <FormGranos
           action='update'
+          infoGrain={data}
           title='Editar Datos Del Grano'
           description='Ingrese la nueva informacion del grano'
         >

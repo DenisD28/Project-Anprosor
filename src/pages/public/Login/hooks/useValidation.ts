@@ -21,8 +21,6 @@ export const useValidation = () => {
   const onSubmit: SubmitHandler<ILogin> = (data) => {
     AuthLogin(data)
       .then((user) => {
-        // setInterval(test, 1 * 60 * 1000)
-
         navigate('/dashboard')
 
         toast({
