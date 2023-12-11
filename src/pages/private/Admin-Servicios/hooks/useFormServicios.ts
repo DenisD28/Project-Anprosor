@@ -59,12 +59,14 @@ export const useFormServicios = (
         description: 'Informacion del servicio actualizada'
       })
     },
-    onError: () => {
+    onError: (error) => {
       toast({
         title: 'Error',
         variant: 'destructive',
         description: 'Error al actualizar informacion del servicio'
       })
+
+      console.log(error)
     }
   })
 

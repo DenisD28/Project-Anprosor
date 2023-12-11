@@ -1,44 +1,10 @@
-import { type ILogin } from '@/type'
 import { Label } from '@/components/ui/label'
 import { Input } from '@/components/ui/input'
-import { useNavigate } from 'react-router-dom'
 import { Button } from '@/components/ui/button'
-import { toast } from '@/components/ui/use-toast'
-import { useForm, type SubmitHandler } from 'react-hook-form'
-import { AuthLogin } from '@/services/servicios.Autenticacion'
+import { useValidation } from '@/pages/public/Login/hooks/useValidation'
 
 export const Login = () => {
-  const navigate = useNavigate()
-
-  const {
-    register,
-    handleSubmit,
-    formState: { errors }
-  } = useForm<ILogin>({
-    defaultValues: {
-      email: 'example@test.com',
-      password: 'password'
-    }
-  })
-
-  const onSubmit: SubmitHandler<ILogin> = (data) => {
-    AuthLogin(data)
-      .then((user) => {
-        navigate('/dashboard')
-
-        toast({
-          title: 'Bienvenido',
-          description: `Bienvenido de vuelta ${user}`
-        })
-      })
-      .catch((error) => {
-        toast({
-          title: 'Error',
-          variant: 'destructive',
-          description: error.response.data.message
-        })
-      })
-  }
+  const { register, onSubmit, handleSubmit, errors } = useValidation()
 
   return (
     <div className='w-screen h-screen flex justify-end items-center'>

@@ -31,6 +31,12 @@ export interface Grain {
   name: string
 }
 
+export interface Service {
+  id: number
+  name: string
+  description: string
+}
+
 export interface ILogin {
   email: string
   password: string

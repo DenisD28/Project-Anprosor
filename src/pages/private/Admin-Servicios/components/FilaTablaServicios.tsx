@@ -5,14 +5,15 @@ import { EliminarServicio } from './EliminarServicio'
 import { TableCell, TableRow } from '@/components/ui/table'
 import { IconEditCircle, IconTrash } from '@tabler/icons-react'
 
-export const FilaTablaServicios = ({ id, name, description }: Service) => {
+export const FilaTablaServicios = (data: Service) => {
   return (
     <TableRow>
-      <TableCell>{name}</TableCell>
-      <TableCell>{description}</TableCell>
+      <TableCell>{data.name}</TableCell>
+      <TableCell>{data.description}</TableCell>
       <TableCell className='flex justify-center gap-2.5'>
         <FormServicios
           action='update'
+          infoService={data}
           title='Editar Datos Del Servicio'
           description='Ingrese la nueva informacion del servicio'
         >
@@ -21,7 +22,7 @@ export const FilaTablaServicios = ({ id, name, description }: Service) => {
           </Button>
         </FormServicios>
 
-        <EliminarServicio idService={id}>
+        <EliminarServicio idService={data.id}>
           <Button variant={'destructive'} size={'icon'}>
             <IconTrash />
           </Button>

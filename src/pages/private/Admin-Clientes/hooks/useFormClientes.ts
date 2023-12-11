@@ -61,12 +61,14 @@ export const useFormClientes = (action?: ActionForm, infoCliente?: Client) => {
         description: 'Informacion del cliente actualizada'
       })
     },
-    onError: () => {
+    onError: (error) => {
       toast({
         title: 'Error',
         variant: 'destructive',
         description: 'Error al actualizar informacion del cliente'
       })
+
+      console.log(error)
     }
   })
 
