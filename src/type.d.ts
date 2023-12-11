@@ -35,3 +35,10 @@ export interface ILogin {
   email: string
   password: string
 }
+
+export interface Usuario {
+  user_id: number
+  name: string
+  email: string
+  role_id: number
+}

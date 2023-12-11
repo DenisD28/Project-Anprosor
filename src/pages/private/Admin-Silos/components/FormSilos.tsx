@@ -24,6 +24,8 @@ interface Props {
 
 interface Inputs {
     nombre: string
+    capacidad: number
+    unidad: string
 }
 
 export const FormSilos = ({ title, description, children }: Props) => {
@@ -67,6 +69,30 @@ export const FormSilos = ({ title, description, children }: Props) => {
                                 required: {
                                     value: true,
                                     message: 'El nombre es requerido'
+                                }
+                            })}
+                        />
+                        <Label htmlFor='email'>Capacidad Maxima</Label>
+                        <Input
+                            type='number'
+                            autoComplete='off'
+                            placeholder='0'
+                            {...register('capacidad', {
+                                required: {
+                                    value: true,
+                                    message: 'La capacidad es requerida'
+                                }
+                            })}
+                        />
+                        <Label htmlFor='email'>Unidad de Medida</Label>
+                        <Input
+                            type='Text'
+                            autoComplete='off'
+                            placeholder='Unidad de Medida'
+                            {...register('unidad', {
+                                required: {
+                                    value: true,
+                                    message: 'Unidad de medida utilizada'
                                 }
                             })}
                         />

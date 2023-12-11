@@ -1,4 +1,4 @@
-import { type Silo } from '@/type'
+import { type Usuario } from '@/type'
 import axios from 'axios'
 import Cookies from 'js-cookie'
 
@@ -12,25 +12,29 @@ const config = {
     }
 }
 
-export const GetSilos = async (): Promise<Silo[]> => {
-    const response = await axios.get(`${BASE_URL}/silo?paginate=false`, config)
+export const GetUsuarios = async (): Promise<Usuario[]> => {
+    const response = await axios.get(`${BASE_URL}/user/list`, config)
 
-    const listGrain: Silo[] = response.data.silos
+    const listGrain: Usuario[] = response.data.silos
 
     return listGrain
 }
 
-export const CreacteSilos = async (data: Silo): Promise<void> => {
+export const CreacteUsuarios = async (data: Usuario): Promise<void> => {
     await axios.post(`${BASE_URL}/silo`, data, config)
 }
 
-export const DeleteSilos = async (id: number): Promise<void> => {
-    await axios.delete(`${BASE_URL}/silo/${id}`, config)
+// export const DeleteUsuarios = async (id: number): Promise<void> => {
+//     await axios.delete(`${BASE_URL}/silo/${id}`, config)
+// }
+
+export const cambioEstado = async (data: number): Promise<void> => {
+    await axios.post(`${BASE_URL}/user/change_status`, data, config)
 }
 
-export const UpdateSilos = async (data: Silo): Promise<void> => {
+export const UpdateUsuarios = async (data: Usuario): Promise<void> => {
     await axios.patch(
-        `${BASE_URL}/silo/${data.id}?code=${data.code}&name=${data.name}`,
+        `${BASE_URL}/user/update?name=${data.name}`,
         {},
         config
     )

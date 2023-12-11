@@ -24,6 +24,8 @@ interface Props {
 
 interface Inputs {
     nombre: string
+    email: string
+    role_id: number
 }
 
 export const FormUsuarios = ({ title, description, children }: Props) => {
@@ -62,8 +64,32 @@ export const FormUsuarios = ({ title, description, children }: Props) => {
                         <Input
                             type='text'
                             autoComplete='off'
-                            placeholder='Maiz'
+                            placeholder='Nombre de usuario'
                             {...register('nombre', {
+                                required: {
+                                    value: true,
+                                    message: 'El nombre es requerido'
+                                }
+                            })}
+                        />
+                        <Label htmlFor='email'>Correo Electronico</Label>
+                        <Input
+                            type='email'
+                            autoComplete='off'
+                            placeholder='Correo elecronico'
+                            {...register('email', {
+                                required: {
+                                    value: true,
+                                    message: 'El nombre es requerido'
+                                }
+                            })}
+                        />
+                        <Label htmlFor='email'>Rol del usuario</Label>
+                        <Input
+                            type='text'
+                            autoComplete='off'
+                            placeholder='Rol'
+                            {...register('role_id', {
                                 required: {
                                     value: true,
                                     message: 'El nombre es requerido'

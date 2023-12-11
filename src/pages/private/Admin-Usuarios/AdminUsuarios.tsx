@@ -10,17 +10,17 @@ export default function AdminUsuarios() {
 
       <FormUsuarios
         action='create'
-        title='Agregar Nuevo Servicio'
-        description='Ingrese la informacion del servicio'
+        title='Agregar Nuevo Usuario'
+        description='Ingrese la informacion del usuario'
       >
         <Button className='self-end flex gap-2 w-40'>
           <IconCirclePlus />
-          Nuevo Servicio
+          Nuevo Usuario
         </Button>
       </FormUsuarios>
 
       <div className='h-[75vh] overflow-y-scroll'>
-        {/* <TablaUsuarios /> */}
+        <TablaUsuarios />
       </div>
     </section>
   )
