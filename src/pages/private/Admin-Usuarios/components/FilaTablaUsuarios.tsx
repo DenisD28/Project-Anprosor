@@ -11,8 +11,8 @@ export const FilaTablaUsuarios = () => {
             <TableCell className='flex justify-center gap-2.5'>
                 <FormUsuarios
                     action='edit'
-                    title='Editar Datos Del Servicio'
-                    description='Ingrese la nueva informacion del servicio'
+                    title='Editar Datos Del usuario'
+                    description='Ingrese la nueva informacion del usuario'
                 >
                     <Button variant={'secondary'} size={'icon'}>
                         <IconEditCircle />

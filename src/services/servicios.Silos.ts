@@ -20,17 +20,17 @@ export const GetSilos = async (): Promise<Silo[]> => {
   return listGrain
 }
 
-export const CreacteSilos = async (data: Silo): Promise<void> => {
+export const CreateSilo = async (data: Silo): Promise<void> => {
   await axios.post(`${BASE_URL}/silo`, data, config)
 }
 
-export const DeleteSilos = async (id: number): Promise<void> => {
+export const DeleteSilo = async (id: number): Promise<void> => {
   await axios.delete(`${BASE_URL}/silo/${id}`, config)
 }
 
-export const UpdateSilos = async (data: Silo): Promise<void> => {
+export const UpdateSilo = async (data: Silo): Promise<void> => {
   await axios.patch(
-    `${BASE_URL}/silo/${data.id}?code=${data.code}&name=${data.name}`,
+    `${BASE_URL}/silo/code=${data.code}&name=${data.name}`,
     {},
     config
   )

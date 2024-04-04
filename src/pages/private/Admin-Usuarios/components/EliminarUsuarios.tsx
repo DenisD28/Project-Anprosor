@@ -21,7 +21,7 @@ export const EliminarUsuarios = ({ children }: Props) => {
             <AlertDialogContent>
                 <AlertDialogHeader>
                     <AlertDialogTitle>
-                        Desea eliminar el silo seleccionado?
+                        Desea eliminar el usuario seleccionado?
                     </AlertDialogTitle>
                     <AlertDialogDescription>
                         Esta accion no se puede deshacer

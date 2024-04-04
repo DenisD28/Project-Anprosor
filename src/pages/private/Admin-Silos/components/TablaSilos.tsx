@@ -29,7 +29,7 @@ export const TablaSilos = () => {
             </TableHeader>
             <TableBody>
                 {listSilo?.map((silo) => (
-                    <FilaTablaSilos key={silo.id} {...silo} />
+                    <FilaTablaSilos key={silo.code} {...silo} />
                 ))}
             </TableBody>
         </Table>

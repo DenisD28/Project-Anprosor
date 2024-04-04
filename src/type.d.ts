@@ -48,3 +48,10 @@ export interface Usuario {
   email: string
   role_id: number
 }
+
+export interface Silo {
+  code: string
+  name: string
+  capacity_total: string
+  unit_of_measure: string
+}

@@ -20,7 +20,7 @@ export const GetUsuarios = async (): Promise<Usuario[]> => {
     return listGrain
 }
 
-export const CreacteUsuarios = async (data: Usuario): Promise<void> => {
+export const CreateUsuarios = async (data: Usuario): Promise<void> => {
     await axios.post(`${BASE_URL}/silo`, data, config)
 }
 
