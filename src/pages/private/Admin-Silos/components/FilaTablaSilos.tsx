@@ -18,7 +18,6 @@ export const FilaTablaSilos = () => {
                         <IconEditCircle />
                     </Button>
                 </FormSilos>
-
                 <EliminarSilos>
                     <Button variant={'destructive'} size={'icon'}>
                         <IconTrash />

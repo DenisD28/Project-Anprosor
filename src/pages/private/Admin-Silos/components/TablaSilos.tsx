@@ -21,6 +21,7 @@ export const TablaSilos = () => {
             <TableCaption>Lista de silos registrados en el sistema</TableCaption>
             <TableHeader>
                 <TableRow>
+                    <TableHead>Codigo</TableHead>
                     <TableHead>Nombre del silo</TableHead>
                     <TableHead>Capacidad total</TableHead>
                     <TableHead>Unidad de medida</TableHead>

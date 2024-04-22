@@ -23,6 +23,7 @@ interface Props {
 }
 
 interface Inputs {
+    codigo: string
     nombre: string
     capacidad: number
     unidad: string
@@ -60,7 +61,26 @@ export const FormSilos = ({ title, description, children }: Props) => {
                         <DialogDescription>{description}</DialogDescription>
                     </DialogHeader>
                     <div className='grid w-full max-w-sm items-center gap-1.5'>
-                        <Label htmlFor='email'>Nombre</Label>
+                        <Label htmlFor='codigo'>Codigo</Label>
+                        <Input
+                            type='text'
+                            autoComplete='off'
+                            placeholder='Silo 1'
+                            {...register('codigo', {
+                                required: {
+                                    value: true,
+                                    message: 'El nombre es requerido'
+                                }
+                            })}
+                        />
+                        {errors.codigo != null && (
+                            <span className='text-xs text-red-600'>
+                                {errors.codigo.message}
+                            </span>
+                        )}
+                    </div>
+                    <div className='grid w-full max-w-sm items-center gap-1.5'>
+                        <Label htmlFor='nombre'>Nombre</Label>
                         <Input
                             type='text'
                             autoComplete='off'
@@ -72,7 +92,14 @@ export const FormSilos = ({ title, description, children }: Props) => {
                                 }
                             })}
                         />
-                        <Label htmlFor='email'>Capacidad Maxima</Label>
+                        {errors.nombre != null && (
+                            <span className='text-xs text-red-600'>
+                                {errors.nombre.message}
+                            </span>
+                        )}
+                    </div>
+                    <div className='grid w-full max-w-sm items-center gap-1.5'>
+                        <Label htmlFor='capacity_total'>Capacidad Maxima</Label>
                         <Input
                             type='number'
                             autoComplete='off'
@@ -84,7 +111,14 @@ export const FormSilos = ({ title, description, children }: Props) => {
                                 }
                             })}
                         />
-                        <Label htmlFor='email'>Unidad de Medida</Label>
+                        {errors.capacidad != null && (
+                            <span className='text-xs text-red-600'>
+                                {errors.capacidad.message}
+                            </span>
+                        )}
+                    </div>
+                    <div className='grid w-full max-w-sm items-center gap-1.5'>
+                        <Label htmlFor='unidad'>Unidad de Medida</Label>
                         <Input
                             type='Text'
                             autoComplete='off'
@@ -96,9 +130,9 @@ export const FormSilos = ({ title, description, children }: Props) => {
                                 }
                             })}
                         />
-                        {errors.nombre != null && (
+                        {errors.unidad != null && (
                             <span className='text-xs text-red-600'>
-                                {errors.nombre.message}
+                                {errors.unidad.message}
                             </span>
                         )}
                     </div>
@@ -107,7 +141,7 @@ export const FormSilos = ({ title, description, children }: Props) => {
                         <Button type='submit'>Guardar</Button>
                     </DialogFooter>
                 </form>
-            </DialogContent>
-        </Dialog>
+            </DialogContent >
+        </Dialog >
     )
 }
